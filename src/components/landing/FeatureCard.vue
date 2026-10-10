@@ -57,9 +57,9 @@ defineProps({
 }
 
 .fc--tint-green {
-  --fc-accent: #6FC276;
+  --fc-accent: #43C41A;
   --fc-accent-100: #BAE6B7;
-  background: rgba(111, 194, 118, 0.1);
+  background: rgba(67, 196, 26, 0.1);
 }
 
 .fc--tint-violet {
@@ -100,7 +100,7 @@ defineProps({
   background: linear-gradient(
     to top,
     var(--lp-green-600) 0%,
-    rgba(111, 194, 118, 0.1) 100%
+    rgba(67, 196, 26, 0.1) 100%
   );
 }
 
@@ -166,7 +166,7 @@ defineProps({
 }
 
 .fc__desc {
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   line-height: 1.65;
   color: var(--lp-slate);
   margin: 8px 0 0;

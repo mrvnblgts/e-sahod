@@ -35,8 +35,7 @@
     </div>
 
     <img
-      v-if="!isSmallScreen"
-      :src="heroBackground"
+      :src="illustrationSrc"
       alt=""
       class="hero__illustration"
     />
@@ -47,13 +46,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import statsImage from '@/assets/images/statistics.jpg'
 import heroBackground from '@/assets/images/hero background.jpg'
+import mobileBackground from '@/assets/images/mobile.jpg'
 
 // Keep this query string in sync with the max-width: 1024px media query below.
 const mql = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)') : null
 const isSmallScreen = ref(mql ? mql.matches : false)
+
+const illustrationSrc = computed(() =>
+  isSmallScreen.value ? mobileBackground : heroBackground
+)
 
 function syncSmallScreen (e) {
   isSmallScreen.value = e.matches
@@ -212,9 +216,17 @@ function scrollToFeatures () {
     max-width: 660px;
   }
 
-  .hero__stats,
-  .hero__illustration {
+  .hero__stats {
     display: none;
+  }
+
+  .hero__illustration {
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.18;
   }
 }
 
