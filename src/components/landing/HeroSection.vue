@@ -15,10 +15,10 @@
         </p>
 
         <div class="hero__cta">
-          <router-link to="/register" class="lp-btn lp-btn--primary">
+          <button type="button" class="lp-btn lp-btn--primary" @click="authDialog.openDialog('register')">
             <q-icon name="arrow_forward" aria-hidden="true" />
             Get Started
-          </router-link>
+          </button>
           <button type="button" class="lp-btn lp-btn--secondary" @click="scrollToFeatures">
             <q-icon name="play_circle" aria-hidden="true" />
             Watch Demo
@@ -50,6 +50,9 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import statsImage from '@/assets/images/statistics.jpg'
 import heroBackground from '@/assets/images/hero background.jpg'
 import mobileBackground from '@/assets/images/mobile.jpg'
+import { useAuthDialog } from '@/stores/authDialog'
+
+const authDialog = useAuthDialog()
 
 // Keep this query string in sync with the max-width: 1024px media query below.
 const mql = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1024px)') : null

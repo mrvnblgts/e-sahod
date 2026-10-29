@@ -1,5 +1,5 @@
 <template>
-  <div class="brand" :class="{ 'brand--compact': compact }">
+  <div class="brand" :class="{ 'brand--compact': compact, 'brand--light': light }">
     <span class="brand__mark" aria-hidden="true">
       <img :src="logoUrl" alt="" class="brand__logo" />
     </span>
@@ -11,7 +11,8 @@
 import logoUrl from '@/assets/images/logo.png'
 
 defineProps({
-  compact: { type: Boolean, default: false }
+  compact: { type: Boolean, default: false },
+  light: { type: Boolean, default: false }
 })
 </script>
 
@@ -51,5 +52,15 @@ defineProps({
 
 .brand--compact .brand__text {
   font-size: 0.95rem;
+}
+
+.brand--light .brand__mark {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.brand--light .brand__text {
+  color: #ffffff;
 }
 </style>

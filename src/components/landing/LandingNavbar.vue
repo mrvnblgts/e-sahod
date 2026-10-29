@@ -18,10 +18,10 @@
       </nav>
 
       <div class="lp-nav__actions">
-        <button type="button" class="lp-nav__login" @click="go('/login')">
+        <button type="button" class="lp-nav__login" @click="authDialog.openDialog('login')">
           Login
         </button>
-        <button type="button" class="lp-btn lp-btn--primary lp-nav__cta" @click="go('/register')">
+        <button type="button" class="lp-btn lp-btn--primary lp-nav__cta" @click="authDialog.openDialog('register')">
           <q-icon name="person" aria-hidden="true" />
           Get Started
         </button>
@@ -56,7 +56,7 @@
                 type="button"
                 class="lp-nav__menu-link lp-nav__menu-link--login"
                 v-close-popup
-                @click="go('/login')"
+                @click="authDialog.openDialog('login')"
               >
                 Login
               </button>
@@ -64,7 +64,7 @@
                 type="button"
                 class="lp-btn lp-btn--primary lp-nav__menu-cta"
                 v-close-popup
-                @click="go('/register')"
+                @click="authDialog.openDialog('register')"
               >
                 <q-icon name="person" aria-hidden="true" />
                 Get Started
@@ -78,10 +78,10 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
 import BrandLogo from './BrandLogo.vue'
+import { useAuthDialog } from '@/stores/authDialog'
 
-const router = useRouter()
+const authDialog = useAuthDialog()
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -95,10 +95,6 @@ function scrollToSection (id) {
     return
   }
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
-
-function go (path) {
-  router.push(path)
 }
 </script>
 

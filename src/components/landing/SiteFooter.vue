@@ -37,10 +37,10 @@
               <button type="button" @click="scrollToSection('about')">About</button>
             </li>
             <li>
-              <router-link to="/login">Log in</router-link>
+              <button type="button" @click="authDialog.openDialog('login')">Log in</button>
             </li>
             <li>
-              <router-link to="/register">Get Started</router-link>
+              <button type="button" @click="authDialog.openDialog('register')">Get Started</button>
             </li>
           </ul>
         </div>
@@ -98,6 +98,9 @@
 <script setup>
 import { ref } from 'vue'
 import BrandLogo from './BrandLogo.vue'
+import { useAuthDialog } from '@/stores/authDialog'
+
+const authDialog = useAuthDialog()
 
 const featureLinks = [
   'Personnel Management',

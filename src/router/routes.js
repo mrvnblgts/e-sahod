@@ -5,11 +5,11 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('@/pages/LoginPage.vue')
+    redirect: { path: '/', query: { auth: 'login' } }
   },
   {
     path: '/register',
-    component: () => import('@/pages/RegisterPage.vue')
+    redirect: { path: '/', query: { auth: 'register' } }
   },
 
   // Always leave this as last one,
